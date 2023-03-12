@@ -1,17 +1,10 @@
 <div class="pagetitle">
-  <h1>General Tables</h1>
-  <nav>
-    <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-      <li class="breadcrumb-item">Tables</li>
-      <li class="breadcrumb-item active">General</li>
-    </ol>
-  </nav>
+  <h1>Barang Masuk</h1>
 </div><!-- End Page Title -->
 
 
 <!-- start modal Tambah barang -->
-<button type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#TambahBarang"><i class="bi bi-file-earmark-plus"></i>
+<button type="button" class="btn btn-success mb-3" data-bs-toggle="modal" data-bs-target="#TambahBarang"><i class="bi bi-file-earmark-plus"></i>
   Tambah Barang </button>
 
 <div class="modal fade" id="TambahBarang" tabindex="-1">
@@ -39,55 +32,55 @@
     <h5 class="card-title">Table with stripped rows</h5>
 
     <!-- Table with stripped rows -->
-    <table class="table table-striped">
+    <table class="table table-striped" id="tabel_barang_masuk">
       <thead>
         <tr>
-          <th scope="col">#</th>
-          <th scope="col">Name</th>
-          <th scope="col">Position</th>
-          <th scope="col">Age</th>
-          <th scope="col">Start Date</th>
+          <th scope="col">No</th>
+          <th scope="col">Id</th>
+          <th scope="col">Nama Barang</th>
+          <th scope="col">Jumlah Barang</th>
+          <th scope="col">Tanggal Barang Masuk</th>
+          <th scope="col">Aksi</th>
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td>Brandon Jacob</td>
-          <td>Designer</td>
-          <td>28</td>
-          <td>2016-05-25</td>
-        </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td>Bridie Kessler</td>
-          <td>Developer</td>
-          <td>35</td>
-          <td>2014-12-05</td>
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td>Ashleigh Langosh</td>
-          <td>Finance</td>
-          <td>45</td>
-          <td>2011-08-12</td>
-        </tr>
-        <tr>
-          <th scope="row">4</th>
-          <td>Angus Grady</td>
-          <td>HR</td>
-          <td>34</td>
-          <td>2012-06-11</td>
-        </tr>
-        <tr>
-          <th scope="row">5</th>
-          <td>Raheem Lehner</td>
-          <td>Dynamic Division Officer</td>
-          <td>47</td>
-          <td>2011-04-19</td>
-        </tr>
+        <?php
+        foreach ($databarangmasuk->result_array() as $dbmasuk) :
+          $tabel0 = $dbmasuk['No'];
+          $tabel1 = $dbmasuk['Id'];
+          $tabel2 = $dbmasuk['Nama_barang'];
+          $tabel3 = $dbmasuk['Jumlah_barang'];
+          $tabel4 = $dbmasuk['Tanggal_barang_masuk'];
+        ?>
+          <tr>
+            <th scope="row"><?= $tabel0 ?></th>
+            <td><?= $tabel1 ?></td>
+            <td><?= $tabel2 ?></td>
+            <td><?= $tabel3 ?></td>
+            <td><?= $tabel4 ?></td>
+            <td>
+              <a class="btn btn-warning"><i class="bi bi-pen"></i></a>
+              <a class="btn btn-danger"><i class="bi bi-trash"></i></a>
+            </td>
+          </tr>
+        <?php endforeach; ?>
       </tbody>
     </table>
     <!-- End Table with stripped rows -->
 
   </div>
 </div>
+
+
+<!-- Ini untuk menjadikan tabel biasa menjadi Data Tables -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.datatables.net/1.13.3/css/dataTables.bootstrap5.min.css" rel="stylesheet">
+
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.13.3/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.3/js/dataTables.bootstrap5.min.js"></script>
+<script>
+  $(document).ready(function() {
+    $('#tabel_barang_masuk').DataTable();
+  });
+</script>
