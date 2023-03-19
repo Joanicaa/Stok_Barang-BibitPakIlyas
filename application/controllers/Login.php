@@ -7,7 +7,6 @@ class Login extends CI_Controller
 	function __construct()
 	{
 		parent::__construct();
-		$this->load->helper('form');
 		$this->load->model('mlogin');
 	}
 
@@ -30,6 +29,8 @@ class Login extends CI_Controller
 	function logout()
 	{
 		$this->session->sess_destroy($this->session->userdata('logged_in'));
+		$pesan['logout'] = "Anda Berhasil Logout";
+		$kirimpesan = $this->session->set_flashdata($pesan);
 		redirect('Login');
 	}
 }

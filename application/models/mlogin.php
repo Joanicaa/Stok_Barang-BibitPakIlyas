@@ -11,6 +11,7 @@ class mlogin extends CI_Model {
                 $datalogin['logged_in'] = "J0joLulu5tepatw4ktu";
                 $datalogin['id']= $tanya->id;
                 $datalogin['user']=$tanya->user;
+                $datalogin['nama']=$tanya->nama;
                 $datalogin['level']=$tanya->level;
                 $this->session->set_userdata($datalogin);
             }

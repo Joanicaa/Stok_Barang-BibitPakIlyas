@@ -156,52 +156,21 @@
         <li class="nav-item dropdown pe-3">
 
           <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-            <span class="d-none d-md-block dropdown-toggle ps-2">K. Anderson</span>
+            <span class="d-none d-md-block dropdown-toggle ps-2"><?= $this->session->userdata('nama'); ?></span>
           </a><!-- End Profile Iamge Icon -->
 
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
             <li class="dropdown-header">
-              <h6>Kevin Anderson</h6>
-              <span>Web Designer</span>
+              <h6><?= $this->session->userdata('nama') ?></h6>
             </li>
             <li>
               <hr class="dropdown-divider">
             </li>
 
             <li>
-              <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
-                <i class="bi bi-person"></i>
-                <span>My Profile</span>
-              </a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-
-            <li>
-              <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
-                <i class="bi bi-gear"></i>
-                <span>Account Settings</span>
-              </a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-
-            <li>
-              <a class="dropdown-item d-flex align-items-center" href="pages-faq.html">
-                <i class="bi bi-question-circle"></i>
-                <span>Need Help?</span>
-              </a>
-            </li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
-
-            <li>
-              <a class="dropdown-item d-flex align-items-center" href="#">
+              <a class="dropdown-item d-flex align-items-center" href="<?= base_url('Login/Logout') ?>">
                 <i class="bi bi-box-arrow-right"></i>
-                <a href="<?= base_url('Login/logout') ?>">Sign Out</a>
+                Sign Out
               </a>
             </li>
 
@@ -219,20 +188,20 @@
     <ul class="sidebar-nav" id="sidebar-nav">
 
       <li class="nav-item">
-        <a class="nav-link " href="pages-blank.html">
+        <a class="<?= ($this->uri->segment(1) === 'Dashboard') ? 'nav-link' : 'nav-link collapsed' ?>" href="<?= base_url('Dashboard') ?>">
           <i class="bi bi-folder"></i>
           <span>Dashboard</span>
         </a>
       </li><!-- End Blank Page Nav -->
 
       <li class="nav-item">
-        <a class="nav-link " href="<?= base_url('Dashboard/barangmasuk') ?>">
+        <a class="<?= ($this->uri->segment(1) === 'Barang_masuk') ? 'nav-link' : 'nav-link collapsed' ?>" href="<?= base_url('Barang_masuk') ?>">
           <i class="bi bi-cart-plus"></i>
           <span>Barang Masuk</span>
         </a>
       </li><!-- End Blank Page Nav -->
       <li class="nav-item">
-        <a class="nav-link " href="<?= base_url('Dashboard/barangkeluar') ?>">
+        <a class="<?= ($this->uri->segment(1) === 'Barang_keluar') ? 'nav-link' : 'nav-link collapsed' ?>" href="<?= base_url('Barang_keluar') ?>">
           <i class="bi bi-cart-plus"></i>
           <span>Barang Keluar</span>
         </a>

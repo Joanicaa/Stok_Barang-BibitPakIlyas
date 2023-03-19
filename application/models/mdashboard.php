@@ -8,4 +8,14 @@ class mdashboard extends CI_Model
         $datatabel = $this->db->get('databarang');
         return $datatabel;
     }
+    function insert($insertdaricontrollerdatamasuk)
+    {
+        $this->db->insert('databarang', $insertdaricontrollerdatamasuk);
+        redirect('Barang_masuk');
+    }
+    function delete($deletedaricontrollerdatamasuk)
+    {
+        $this->db->delete('databarang', array('Id' => $deletedaricontrollerdatamasuk));
+        redirect('Barang_masuk');
+    }
 }
