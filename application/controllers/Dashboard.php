@@ -13,8 +13,10 @@ class Dashboard extends CI_Controller
 	{
 
 		if ($this->session->userdata('logged_in') == "J0joLulu5tepatw4ktu") {
+			$databarangmasuk['data_flow'] = $this->mdashboard->getdatafromdb();
+
 			$this->load->view('template/load_dashboard_up');
-			$this->load->view('vdashboard');
+			$this->load->view('vdashboard', $databarangmasuk);
 			$this->load->view('template/load_dashboard_down');
 		} else {
 			redirect('Login');

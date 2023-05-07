@@ -162,6 +162,12 @@
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
             <li class="dropdown-header">
               <h6><?= $this->session->userdata('nama') ?></h6>
+              <span> <?php if ($this->session->userdata('level') == '1') {
+                        echo 'Superadmin';
+                      } else {
+                        echo 'Admin';
+                      }
+                      ?></span>
             </li>
             <li>
               <hr class="dropdown-divider">
@@ -193,19 +199,38 @@
           <span>Dashboard</span>
         </a>
       </li><!-- End Blank Page Nav -->
-
       <li class="nav-item">
         <a class="<?= ($this->uri->segment(1) === 'Barang_masuk') ? 'nav-link' : 'nav-link collapsed' ?>" href="<?= base_url('Barang_masuk') ?>">
           <i class="bi bi-cart-plus"></i>
           <span>Barang Masuk</span>
         </a>
       </li><!-- End Blank Page Nav -->
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <a class="<?= ($this->uri->segment(1) === 'Barang_keluar') ? 'nav-link' : 'nav-link collapsed' ?>" href="<?= base_url('Barang_keluar') ?>">
           <i class="bi bi-cart-plus"></i>
           <span>Barang Keluar</span>
         </a>
+      </li> -->
+      <li class="nav-item">
+        <a class="<?= ($this->uri->segment(1) === 'Keranjang') ? 'nav-link' : 'nav-link collapsed' ?>" href="<?= base_url('Keranjang') ?>">
+          <i class="bi bi-cart2"></i>
+          <span>Keranjang</span>
+        </a>
       </li><!-- End Blank Page Nav -->
+      <?php if ($this->session->userdata('level') == '1') { ?>
+
+        <li class="nav-item">
+          <a class="<?= ($this->uri->segment(1) === 'User') ? 'nav-link' : 'nav-link collapsed' ?>" href="<?= base_url('User') ?>">
+            <i class="bi bi-people"></i>
+            <span>Manajemen User</span>
+          </a>
+        </li><!-- End Blank Page Nav -->
+
+      <?php
+      } else {
+        
+      }
+      ?>
     </ul>
 
   </aside><!-- End Sidebar-->

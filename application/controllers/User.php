@@ -1,0 +1,61 @@
+<?php
+defined('BASEPATH') or exit('No direct script access allowed');
+
+class User extends CI_Controller
+{
+    function __construct()
+    {
+        parent::__construct();
+        $this->load->model('mdashboard');
+    }
+
+    public function index()
+    {
+
+        $tampiluser['tampiluser'] = $this->mdashboard->getdatauser();
+
+        if ($this->session->userdata('logged_in') == "J0joLulu5tepatw4ktu") {
+            if ($this->session->userdata('level') == '1') {
+                $this->load->view('template/load_dashboard_up');
+                $this->load->view('vuser', $tampiluser);
+                $this->load->view('template/load_dashboard_down');
+            } else {
+                echo 'Kamu Tidak Diperbolehkan Mengakses Halaman Ini';
+            }
+        } else {
+            redirect('Login');
+        }
+    }
+    function tambah_user()
+    {
+        if ($this->session->userdata('logged_in') == "J0joLulu5tepatw4ktu") {
+            if ($this->session->userdata('level') == '1') {
+                $datamasuk = array(
+                    'id' =>  date('myis'),
+                    'user' => $this->input->post('user'),
+                    'password' => $this->input->post('pass'),
+                    'nama' => $this->input->post('nama'),
+                    'level' => $this->input->post('role'),
+                );
+                $this->mdashboard->insert_user($datamasuk);
+            } else {
+                echo 'Kamu Tidak Diperbolehkan Mengakses Halaman Ini';
+            }
+        } else {
+            $this->load->view('vlogin');
+        }
+    }
+    function hapus_user()
+    {
+        if ($this->session->userdata('logged_in') == "J0joLulu5tepatw4ktu") {
+            if ($this->session->userdata('level') == '1') {
+                $id = $this->uri->segment(3);
+                $this->mdashboard->delete_user($id);
+            } else {
+                echo 'Kamu Tidak Diperbolehkan Mengakses Halaman Ini';
+            }
+        } else {
+            $this->load->view('vlogin');
+        }
+    }
+}

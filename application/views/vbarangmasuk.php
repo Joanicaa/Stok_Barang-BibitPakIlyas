@@ -8,8 +8,8 @@
   Tambah Barang </button>
 
 <div class="card">
-  <div class="card-body">
-    <h5 class="card-title">Table with stripped rows</h5>
+  <div class="card-body mt-3">
+
 
     <!-- Table with stripped rows -->
     <table class="table table-striped" id="tabel_barang_masuk">
@@ -27,7 +27,7 @@
       <tbody>
         <?php
         foreach ($databarangmasuk->result_array() as $dbmasuk) :
-          $tabel1 = $dbmasuk['Id'];
+          $tabel1 = $dbmasuk['Id_barang'];
           $tabel2 = $dbmasuk['Nama_barang'];
           $tabel3 = $dbmasuk['Ukuran_barang'];
           $tabel4 = $dbmasuk['Harga_barang'];

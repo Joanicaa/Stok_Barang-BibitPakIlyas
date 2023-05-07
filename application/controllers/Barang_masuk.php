@@ -25,7 +25,7 @@ class Barang_masuk extends CI_Controller
 	{
 		if ($this->session->userdata('logged_in') == "J0joLulu5tepatw4ktu") {
 			$datamasuk = array(
-				'id' =>  date('myis'),
+				'Id_barang' =>  date('myis'),
 				'Nama_barang' => $this->input->post('Namabarang'),
 				'Ukuran_barang' => $this->input->post('Ukuran'),
 				'Harga_barang' => $this->input->post('Harga'),

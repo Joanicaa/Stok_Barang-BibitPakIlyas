@@ -8,6 +8,18 @@ class mdashboard extends CI_Model
         $datatabel = $this->db->get('databarang');
         return $datatabel;
     }
+    function get_keranjang()
+    {
+        $datakeranjang = $this->db->get('databarang');
+        return $datakeranjang->result();
+    }
+    function getdatauser()
+    {
+        $datauser = $this->db->get('user');
+        return $datauser;
+    }
+
+    // untuk barang
     function insert($insertdaricontrollerdatamasuk)
     {
         $this->db->insert('databarang', $insertdaricontrollerdatamasuk);
@@ -15,7 +27,19 @@ class mdashboard extends CI_Model
     }
     function delete($deletedaricontrollerdatamasuk)
     {
-        $this->db->delete('databarang', array('Id' => $deletedaricontrollerdatamasuk));
+        $this->db->delete('databarang', array('Id_barang' => $deletedaricontrollerdatamasuk));
         redirect('Barang_masuk');
+    }
+
+    // untuk user 
+    function delete_user($deletedaricontrolleruser)
+    {
+        $this->db->delete('user', array('Id' => $deletedaricontrolleruser));
+        redirect('User');
+    }
+    function insert_user($insertdaricontrolleruser)
+    {
+        $this->db->insert('user', $insertdaricontrolleruser);
+        redirect('User');
     }
 }

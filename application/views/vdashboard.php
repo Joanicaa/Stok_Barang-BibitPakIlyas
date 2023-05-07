@@ -220,7 +220,10 @@
             <div class="card-body pb-0">
               <h5 class="card-title">Website Traffic <span>| Today</span></h5>
 
-              <div id="trafficChart" style="min-height: 400px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); position: relative;" class="echart" _echarts_instance_="ec_1677924099616"><div style="position: relative; width: 885px; height: 400px; padding: 0px; margin: 0px; border-width: 0px;"><canvas data-zr-dom-id="zr_0" width="1106" height="500" style="position: absolute; left: 0px; top: 0px; width: 885px; height: 400px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); padding: 0px; margin: 0px; border-width: 0px;"></canvas></div><div class=""></div></div>
+              <div id="trafficChart" style="min-height: 400px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); position: relative;" class="echart" _echarts_instance_="ec_1677924099616">
+                <div style="position: relative; width: 885px; height: 400px; padding: 0px; margin: 0px; border-width: 0px;"><canvas data-zr-dom-id="zr_0" width="1106" height="500" style="position: absolute; left: 0px; top: 0px; width: 885px; height: 400px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); padding: 0px; margin: 0px; border-width: 0px;"></canvas></div>
+                <div class=""></div>
+              </div>
 
               <script>
                 document.addEventListener("DOMContentLoaded", () => {
@@ -252,16 +255,16 @@
                         show: false
                       },
                       data: [{
-                          value: 1048,
-                          name: 'Search Engine'
-                        },
-                        {
                           value: 735,
                           name: 'Direct'
                         },
                         {
                           value: 580,
                           name: 'Email'
+                        },
+                        {
+                          value: 50,
+                          name: 'LinkedIn'
                         },
                         {
                           value: 484,

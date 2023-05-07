@@ -15,9 +15,7 @@ class Login extends CI_Controller
 		if ($this->session->userdata('logged_in') == "J0joLulu5tepatw4ktu") {
 			redirect('Dashboard');
 		} else {
-			$this->load->view('template/load_up');
 			$this->load->view('vlogin');
-			$this->load->view('template/load_down');
 		}
 	}
 	function validate()
