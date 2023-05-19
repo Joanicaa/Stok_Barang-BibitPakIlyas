@@ -30,6 +30,12 @@ class mdashboard extends CI_Model
         $this->db->delete('databarang', array('Id_barang' => $deletedaricontrollerdatamasuk));
         redirect('Barang_masuk');
     }
+    function update($updatedaricontroller, $id_daricontroller)
+    {
+        $this->db->where('Id_barang', $id_daricontroller);
+        $this->db->update('databarang', $updatedaricontroller);
+        redirect('Barang_masuk');
+    }
 
     // untuk user 
     function delete_user($deletedaricontrolleruser)
@@ -41,5 +47,11 @@ class mdashboard extends CI_Model
     {
         $this->db->insert('user', $insertdaricontrolleruser);
         redirect('User');
+    }
+
+    function getMax($table = null, $field = null)
+    {
+        $this->db->select_max($field);
+        return $this->db->get($table)->row_array()[$field];
     }
 }

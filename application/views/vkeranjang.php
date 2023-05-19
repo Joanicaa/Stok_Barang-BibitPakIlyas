@@ -1,7 +1,7 @@
 <!-- <script src="<?= base_url('Asset/assets/js/jquery-3.5.1.js') ?>"></script> -->
 
 <div class="pagetitle">
-    <h1>Barang Masuk</h1>
+    <h1>Keranjang Barang Keluar</h1>
 </div><!-- End Page Title -->
 
 

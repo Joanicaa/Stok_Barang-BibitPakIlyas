@@ -16,7 +16,8 @@ class User extends CI_Controller
 
         if ($this->session->userdata('logged_in') == "J0joLulu5tepatw4ktu") {
             if ($this->session->userdata('level') == '1') {
-                $this->load->view('template/load_dashboard_up');
+                $titlepage['titlepage'] = 'Tambah User';
+                $this->load->view('template/load_dashboard_up', $titlepage);
                 $this->load->view('vuser', $tampiluser);
                 $this->load->view('template/load_dashboard_down');
             } else {

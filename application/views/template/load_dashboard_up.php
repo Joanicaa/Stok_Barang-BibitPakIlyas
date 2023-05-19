@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Login Stock Barang</title>
+  <title><?= $titlepage ?></title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -222,13 +222,12 @@
         <li class="nav-item">
           <a class="<?= ($this->uri->segment(1) === 'User') ? 'nav-link' : 'nav-link collapsed' ?>" href="<?= base_url('User') ?>">
             <i class="bi bi-people"></i>
-            <span>Manajemen User</span>
+            <span>Tambah User</span>
           </a>
         </li><!-- End Blank Page Nav -->
 
       <?php
       } else {
-        
       }
       ?>
     </ul>
