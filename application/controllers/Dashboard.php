@@ -15,6 +15,14 @@ class Dashboard extends CI_Controller
 		if ($this->session->userdata('logged_in') == "J0joLulu5tepatw4ktu") {
 			$titlepage['titlepage'] = 'Dashboard';
 			$databarangmasuk['data_flow'] = $this->mdashboard->getdatafromdb();
+			$databarangmasuk["jumlah_id"] = $this->mdashboard->get_count_id();
+			$databarangmasuk["jumlah_stok"] = $this->mdashboard->stokbarang();
+			$databarangmasuk["barang_habis"] = $this->mdashboard->hampir_habis();
+
+			// var_dump($this->mdashboard->jumlah_hampir_habis());
+			// die;
+
+
 
 			$this->load->view('template/load_dashboard_up', $titlepage);
 			$this->load->view('vdashboard', $databarangmasuk);
@@ -30,6 +38,7 @@ class Dashboard extends CI_Controller
 		if ($this->session->userdata('logged_in') == "J0joLulu5tepatw4ktu") {
 			$this->load->view('template/load_dashboard_up');
 			$this->load->view('vbarangkeluar', $databarangkeluar);
+			$this->db->count_all('databarang');
 			$this->load->view('template/load_dashboard_down');
 		} else {
 			redirect('Login');

@@ -24,11 +24,6 @@
             <tbody>
                 <?php
                 foreach ($databarangmasuk as $dbmasuk) :
-                    // $tabel1 = $dbmasuk['Id'];
-                    // $tabel2 = $dbmasuk['Nama_barang'];
-                    // $tabel3 = $dbmasuk['Ukuran_barang'];
-                    // $tabel4 = $dbmasuk['Harga_barang'];
-                    // $tabel5 = $dbmasuk['Jumlah_barang'];
                 ?>
                     <tr>
                         <td><?= $dbmasuk->Id_barang ?></td>
@@ -68,7 +63,9 @@
         <!-- End Table with stripped rows -->
         <div class="d-flex flex-row-reverse me-2">
         </div>
-
+        <div class="d-flex justify-content-end">
+            <a href="<?= base_url('Keranjang/Berhasil') ?>" type="button" class="btn btn-primary mt-2"><i class="bi bi-cart me-2"></i> Beli Sekarang </a>
+        </div>
     </div>
 </div>
 

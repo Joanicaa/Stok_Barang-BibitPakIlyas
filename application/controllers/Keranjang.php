@@ -22,6 +22,12 @@ class Keranjang extends CI_Controller
         }
     }
 
+    function Berhasil()
+    {
+
+        $this->load->view("keranjang_sukses");
+    }
+
     function add_to_cart()
     { //fungsi Add To Cart
         if ($this->session->userdata('logged_in') == "J0joLulu5tepatw4ktu") {
@@ -53,7 +59,7 @@ class Keranjang extends CI_Controller
 					<td>' . $items['jenis'] . '</td>
 					<td>' . $items['qty'] . '</td>
 					<td>' . number_format($items['subtotal']) . '</td>
-					<td><button type="button" id="' . $items['rowid'] . '" class="hapus_cart btn btn-danger btn-xs">Batal</button></td>
+					<td><button type="button" id="' . $items['rowid'] . '" class="hapus_cart btn btn-danger btn-sm"><i class="bi bi-trash me-2"></i>Hapus</button></td>
 				</tr>
 			';
             }
@@ -73,6 +79,44 @@ class Keranjang extends CI_Controller
     { //load data cart
         if ($this->session->userdata('logged_in') == "J0joLulu5tepatw4ktu") {
             echo $this->show_cart();
+        } else {
+            redirect('Login');
+        }
+    }
+
+    function show_success_cart()
+    { //load data cart
+        if ($this->session->userdata('logged_in') == "J0joLulu5tepatw4ktu") {
+            $output = '';
+            $no = 0;
+            foreach ($this->cart->contents() as $items) {
+                $no++;
+                $output .= '
+				<tr>
+					<td>' . $items['name'] . '</td>
+					<td>' . number_format($items['price']) . '</td>
+					<td>' . $items['jenis'] . '</td>
+					<td>' . $items['qty'] . '</td>
+					<td>' . number_format($items['subtotal']) . '</td>
+				</tr>
+			';
+            }
+            $output .= '
+			<tr>
+				<th colspan="4">Total</th>
+				<th colspan="2">' . 'Rp ' . number_format($this->cart->total()) . '</th>
+			</tr>
+		';
+            return $output;
+        } else {
+            redirect('Login');
+        }
+    }
+
+    function load_cart_success()
+    { //load data cart
+        if ($this->session->userdata('logged_in') == "J0joLulu5tepatw4ktu") {
+            echo $this->show_success_cart();
         } else {
             redirect('Login');
         }

@@ -75,7 +75,7 @@
             <input type="text" class="form-control" id="Id_barang" name="Id_barang" value="<?= $newcode; ?>" required readonly>
           </div>
 
-          <div class="col-10">
+          <div class="col-7">
             <label for="Namabarang" class="form-label">Nama Barang</label>
             <input type="text" class="form-control" id="Namabarang" name="Namabarang" required>
           </div>
@@ -83,7 +83,7 @@
             <label for="Jumlahbarang" class="form-label">Jumlah Barang</label>
             <input type="number" class="form-control" id="Jumlahbarang" name="Jumlahbarang" required>
           </div>
-          <div class="col-6">
+          <div class="col-3">
             <label for="Ukuran" class="form-label">Ukuran Barang</label>
             <select class="form-select" id="Ukuran" name="Ukuran" required>
               <option selected="" value="Kecil">Kecil</option>
@@ -91,7 +91,7 @@
               <option value="Besar">Besar</option>
             </select>
           </div>
-          <div class="col-6">
+          <div class="col-9">
             <label for="Harga" class="form-label">Harga Barang</label>
             <input type="number" class="form-control" id="Harga" name="Harga">
           </div>

@@ -1,5 +1,5 @@
 <div class="pagetitle">
-    <h1> Tambah User</h1>
+    <h1>User</h1>
 </div><!-- End Page Title -->
 
 

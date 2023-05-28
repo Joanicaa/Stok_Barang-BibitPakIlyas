@@ -71,7 +71,7 @@
   <header id="header" class="header fixed-top d-flex align-items-center">
 
     <div class="d-flex align-items-center justify-content-between">
-      <a href="index.html" class="logo d-flex align-items-center">
+      <a href="<?= base_url() ?>" class="logo d-flex align-items-center">
         <img src="assets/img/logo.png" alt="">
         <span class="d-none d-lg-block">Bibit Buah Pak Ilyas</span>
       </a>
@@ -222,7 +222,7 @@
         <li class="nav-item">
           <a class="<?= ($this->uri->segment(1) === 'User') ? 'nav-link' : 'nav-link collapsed' ?>" href="<?= base_url('User') ?>">
             <i class="bi bi-people"></i>
-            <span>Tambah User</span>
+            <span>User</span>
           </a>
         </li><!-- End Blank Page Nav -->
 
