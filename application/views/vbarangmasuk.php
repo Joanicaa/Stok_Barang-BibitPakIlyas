@@ -43,8 +43,9 @@
             <td><?= $tabel6 ?></td>
             <td>
               <a class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#Edits<?= $tabel1 ?>"><i class="bi bi-pen"></i></a>
+              <a class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#Delete<?= $tabel1 ?>"><i class="bi bi-trash"></i></a>
               <!-- <a class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#Hapus"><i class="bi bi-trash"></i></a> -->
-              <a href="<?= base_url("Barang_masuk/hapus_barang/" . $tabel1); ?>" class="btn btn-danger"><i class="bi bi-trash"></i></a>
+              <!-- <a href="<?= base_url("Barang_masuk/hapus_barang1/" . $tabel1); ?>" class="btn btn-danger"><i class="bi bi-trash"></i></a> -->
 
             </td>
           </tr>
@@ -156,6 +157,37 @@ foreach ($databarangmasuk->result_array() as $dbmasuk) :
         <div class="modal-footer">
           <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
           <button type="submit" class="btn btn-success">Update Barang</button>
+        </div>
+        <?= form_close()  ?>
+      </div>
+    </div>
+  </div>
+
+  <!-- Delete Modal -->
+  <div class="modal fade" id="Delete<?= $tabel1 ?>" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <?= form_open('Barang_masuk/hapus_barang/' . $tabel1)  ?>
+        <div class="modal-header">
+          <h5 class="modal-title">Modal edit <mark> <?= $tabel2 ?></mark></h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <!-- Vertical Form -->
+          <div class="row g-3">
+            <div class="col-3">
+              <label for="Id_barang" class="form-label">Id</label>
+              <input type="text" class="form-control" id="Id_barang" name="Id_barang" value="<?= $tabel1 ?>" disabled>
+            </div>
+            <div class="col-9">
+              <label for="UpdateNamabarang" class="form-label">Nama Barang</label>
+              <input type="text" class="form-control" id="UpdateNamabarang" name="UpdateNamabarang" value="<?= $tabel2 ?>" disabled>
+            </div>
+          </div><!-- Vertical Form -->
+        </div>
+        <div class="modal-footer">
+          <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
+          <button type="submit" class="btn btn-danger">Hapus Barang</button>
         </div>
         <?= form_close()  ?>
       </div>

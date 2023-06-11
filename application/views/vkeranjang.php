@@ -34,7 +34,7 @@
                         <!-- <td><?= $dbmasuk->Tanggal_barang_masuk ?></td> -->
                         <td> <input type="number" name="quantity" id="<?= $dbmasuk->Id_barang ?>" value="1" class="quantity form-control"></td>
                         <td>
-                            <button class="add_cart btn btn-success" data-produkid='<?= $dbmasuk->Id_barang ?>' data-produknama='<?= $dbmasuk->Nama_barang ?>' data-produkharga='<?= $dbmasuk->Harga_barang ?>' data-produkukuran='<?= $dbmasuk->Ukuran_barang ?>'><i class="bi bi-cart-plus"></i></button>
+                            <button class="add_cart btn btn-success" data-produkid='<?= $dbmasuk->Id_barang ?>' data-produknama='<?= $dbmasuk->Nama_barang ?>' data-produkharga='<?= $dbmasuk->Harga_barang ?>' data-produkukuran='<?= $dbmasuk->Ukuran_barang ?>' data-jumlah='<?= $dbmasuk->Jumlah_barang ?>'><i class="bi bi-cart-plus"></i></button>
 
                         </td>
                     </tr>
@@ -107,9 +107,11 @@
             var produk_id = $(this).data("produkid");
             var produk_nama = $(this).data("produknama");
             var produk_harga = $(this).data("produkharga");
+            var produk_jumlah = $(this).data("jumlah");
             // var produk_ukuran = $(this).data("produkukuran");
             var quantity = $('#' + produk_id).val();
             $.ajax({
+
                 url: '<?= base_url('Keranjang/add_to_cart'); ?>',
                 method: "POST",
                 data: {
