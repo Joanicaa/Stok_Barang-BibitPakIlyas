@@ -217,15 +217,13 @@
           <span>Keranjang</span>
         </a>
       </li><!-- End Blank Page Nav -->
+      <li class="nav-item">
+        <a class="<?= ($this->uri->segment(1) === 'Histori_pembelian') ? 'nav-link' : 'nav-link collapsed' ?>" href="<?= base_url('Histori_pembelian') ?>">
+          <i class="bi bi-people"></i>
+          <span>Histori Pembelian</span>
+        </a>
+      </li><!-- End Blank Page Nav -->
       <?php if ($this->session->userdata('level') == '1') { ?>
-
-        <li class="nav-item">
-          <a class="<?= ($this->uri->segment(1) === 'Histori_pembelian') ? 'nav-link' : 'nav-link collapsed' ?>" href="<?= base_url('Histori_pembelian') ?>">
-            <i class="bi bi-people"></i>
-            <span>Histori Pembelian</span>
-          </a>
-        </li><!-- End Blank Page Nav -->
-
         <li class="nav-item">
           <a class="<?= ($this->uri->segment(1) === 'User') ? 'nav-link' : 'nav-link collapsed' ?>" href="<?= base_url('User') ?>">
             <i class="bi bi-people"></i>

@@ -10,25 +10,22 @@
         <table class="table table-striped" id="tabel_barang_masuk">
             <thead>
                 <tr>
-                    <th scope="col">Id</th>
-                    <th scope="col">Nama Barang</th>
-                    <th scope="col">Ukuran Barang</th>
-                    <th scope="col">Harga Barang</th>
+                    <th scope="col">Id Penjualan</th>
+                    <th scope="col">Id Detail</th>
+                    <th scope="col">Tanggal Pembelian</th>
                 </tr>
             </thead>
             <tbody>
                 <?php
                 foreach ($datapembelian->result_array() as $dbmasuk) :
                     $tabel1 = $dbmasuk['Id_Penjualan'];
-                    $tabel2 = $dbmasuk['Nama_Barang'];
-                    $tabel3 = $dbmasuk['Ukuran_Barang'];
-                    $tabel4 = $dbmasuk['Harga_Barang'];
+                    $tabel2 = $dbmasuk['Id_Detail'];
+                    $tabel3 = $dbmasuk['Tanggal_Barang_Keluar'];
                 ?>
                     <tr>
                         <td><?= $tabel1 ?></td>
                         <td><?= $tabel2 ?></td>
                         <td><?= $tabel3 ?></td>
-                        <td><?= number_format($tabel4) ?></td>
                     </tr>
                 <?php endforeach; ?>
             </tbody>
@@ -42,9 +39,8 @@
 <?php
 foreach ($datapembelian->result_array() as $dbmasuk) :
     $tabel1 = $dbmasuk['Id_Penjualan'];
-    $tabel2 = $dbmasuk['Nama_Barang'];
-    $tabel3 = $dbmasuk['Ukuran_Barang'];
-    $tabel4 = $dbmasuk['Harga_Barang'];
+    $tabel2 = $dbmasuk['Id_Detail'];
+    $tabel3 = $dbmasuk['Tanggal_Barang_Keluar'];
 ?>
     <div class="modal fade" id="Edits<?= $tabel1 ?>" tabindex="-1">
         <div class="modal-dialog modal-lg">

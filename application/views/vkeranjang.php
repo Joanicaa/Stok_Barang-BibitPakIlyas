@@ -34,7 +34,7 @@
                         <!-- <td><?= $dbmasuk->Tanggal_barang_masuk ?></td> -->
                         <td> <input type="number" name="quantity" id="<?= $dbmasuk->Id_barang ?>" value="1" class="quantity form-control"></td>
                         <td>
-                            <button class="add_cart btn btn-success" data-produkid='<?= $dbmasuk->Id_barang ?>' data-produknama='<?= $dbmasuk->Nama_barang ?>' data-produkharga='<?= $dbmasuk->Harga_barang ?>' data-produkukuran='<?= $dbmasuk->Ukuran_barang ?>' data-jumlah='<?= $dbmasuk->Jumlah_barang ?>'><i class="bi bi-cart-plus"></i></button>
+                            <button class="add_cart btn btn-success" data-produkid='<?= $dbmasuk->Id_barang ?>' data-produknama='<?= $dbmasuk->Nama_barang ?>' data-produkharga='<?= $dbmasuk->Harga_barang ?>' data-produkukuran='<?= $dbmasuk->Ukuran_barang ?>'><i class="bi bi-cart-plus"></i></button>
 
                         </td>
                     </tr>
@@ -48,6 +48,7 @@
             <table class="table table-striped">
                 <thead>
                     <tr>
+                        <th>Id</th>
                         <th>Produk</th>
                         <th>Harga</th>
                         <th>Ukuran</th>
@@ -64,7 +65,7 @@
         <div class="d-flex flex-row-reverse me-2">
         </div>
         <div class="d-flex justify-content-end">
-            <a href="<?= base_url('Keranjang/Berhasil') ?>" type="button" class="btn btn-primary mt-2"><i class="bi bi-cart me-2"></i> Beli Sekarang </a>
+            <a href="<?= base_url('Keranjang/Berhasil') ?>" type="button" onclick="myFunction()" class="upload-db btn btn-primary mt-2"><i class="bi bi-cart me-2"></i> Beli Sekarang </a>
         </div>
     </div>
 </div>
@@ -76,13 +77,12 @@
 <script src="<?= base_url("Asset/datatables/jquery-3.5.1.js") ?>"></script>
 <script src="<?= base_url("Asset/datatables/jquery.dataTables.min.js") ?>"></script>
 <script src="<?= base_url("Asset/datatables/dataTables.bootstrap5.min.js") ?>"></script>
-<script>
+
+<script type="text/javascript">
     $(document).ready(function() {
         $('#tabel_barang_masuk').DataTable();
     });
-</script>
 
-<script type="text/javascript">
     $(document).ready(function() {
 
         // Load shopping cart 
@@ -107,18 +107,16 @@
             var produk_id = $(this).data("produkid");
             var produk_nama = $(this).data("produknama");
             var produk_harga = $(this).data("produkharga");
-            var produk_jumlah = $(this).data("jumlah");
-            // var produk_ukuran = $(this).data("produkukuran");
+            var produk_ukuran = $(this).data("produkukuran");
             var quantity = $('#' + produk_id).val();
             $.ajax({
-
                 url: '<?= base_url('Keranjang/add_to_cart'); ?>',
                 method: "POST",
                 data: {
                     produk_id: produk_id,
                     produk_nama: produk_nama,
                     produk_harga: produk_harga,
-                    // produk_ukuran: produk_ukuran,
+                    produk_ukuran: produk_ukuran,
                     quantity: quantity
                 },
                 success: function(data) {
@@ -126,5 +124,6 @@
                 }
             });
         });
+
     });
 </script>

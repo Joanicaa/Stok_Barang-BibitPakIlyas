@@ -20,9 +20,16 @@ class Login extends CI_Controller
 	}
 	function validate()
 	{
-		$acc['accusername'] = $this->input->post('username');
-		$acc['accpassword'] = $this->input->post('password');
-		$this->mlogin->getlogindata($acc);
+		$this->form_validation->set_rules('username', 'Username', 'required');
+		$this->form_validation->set_rules('password', 'Password', 'required');
+
+		if ($this->form_validation->run() == FALSE) {
+			$this->load->view('vlogin');
+		} else {
+			$acc['accusername'] = $this->input->post('username');
+			$acc['accpassword'] = $this->input->post('password');
+			$this->mlogin->getlogindata($acc);
+		}
 	}
 	function logout()
 	{

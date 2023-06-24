@@ -48,6 +48,7 @@
                         <table class="table table-sm">
                             <thead>
                                 <tr>
+                                    <th>Id</th>
                                     <th>Produk</th>
                                     <th>Harga</th>
                                     <th>Ukuran</th>

@@ -8,7 +8,7 @@ class mlogin extends CI_Model
         $dbacc['user'] = $daricontrollerlogin['accusername'];
         $dbacc['password'] = $daricontrollerlogin['accpassword'];
         $tanyadb = $this->db->get_where('user', $dbacc);
-        if ($tanyadb->num_rows() > 0) {
+        if ($tanyadb->num_rows() > 0) { //lebih dari 0 itu ada isinya
             foreach ($tanyadb->result() as $tanya) {
                 $datalogin['logged_in'] = "J0joLulu5tepatw4ktu";
                 $datalogin['id'] = $tanya->id;
@@ -22,8 +22,8 @@ class mlogin extends CI_Model
             } else {
                 redirect("Dashboard");
             }
-        } else {
-            echo "Kamu gagal masuk";
+        } else {    
+            redirect("Login");
         }
     }
 }

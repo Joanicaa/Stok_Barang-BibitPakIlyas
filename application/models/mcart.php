@@ -13,4 +13,7 @@ class mcart extends CI_Model
         $hasil = $this->db->get('databarang');
         return $hasil->result();
     }
+    function UploadDataPembelian($datapembelian){
+
+    }
 }

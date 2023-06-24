@@ -35,10 +35,12 @@ class Keranjang extends CI_Controller
                 'id' => $this->input->post('produk_id'),
                 'name' => $this->input->post('produk_nama'),
                 'price' => $this->input->post('produk_harga'),
-                'jenis' => $this->input->post('jenis_produk'),
+                'jenis' => $this->input->post('produk_ukuran'),
                 'qty' => $this->input->post('quantity'),
             );
+
             $this->cart->insert($data);
+            $this->mcart->UploadDataPembelian($data);
             echo $this->show_cart(); //tampilkan cart setelah added
         } else {
             redirect('Login');
@@ -54,6 +56,7 @@ class Keranjang extends CI_Controller
                 $no++;
                 $output .= '
 				<tr>
+                <td>' . $items['id'] . '</td>
 					<td>' . $items['name'] . '</td>
 					<td>' . number_format($items['price']) . '</td>
 					<td>' . $items['jenis'] . '</td>
@@ -65,10 +68,13 @@ class Keranjang extends CI_Controller
             }
             $output .= '
 			<tr>
-				<th colspan="4">Total</th>
+				<th colspan="5">Total</th> 
 				<th colspan="2">' . 'Rp ' . number_format($this->cart->total()) . '</th>
 			</tr>
 		';
+            // colspan: "5" Tabel Cart Hitung mulai ID-QTY
+            // colspan: "2" 
+            //colspan sama kayak sistem gabung cell di sheet
             return $output;
         } else {
             redirect('Login');
@@ -79,44 +85,6 @@ class Keranjang extends CI_Controller
     { //load data cart
         if ($this->session->userdata('logged_in') == "J0joLulu5tepatw4ktu") {
             echo $this->show_cart();
-        } else {
-            redirect('Login');
-        }
-    }
-
-    function show_success_cart()
-    { //load data cart
-        if ($this->session->userdata('logged_in') == "J0joLulu5tepatw4ktu") {
-            $output = '';
-            $no = 0;
-            foreach ($this->cart->contents() as $items) {
-                $no++;
-                $output .= '
-				<tr>
-					<td>' . $items['name'] . '</td>
-					<td>' . number_format($items['price']) . '</td>
-					<td>' . $items['jenis'] . '</td>
-					<td>' . $items['qty'] . '</td>
-					<td>' . number_format($items['subtotal']) . '</td>
-				</tr>
-			';
-            }
-            $output .= '
-			<tr>
-				<th colspan="4">Total</th>
-				<th colspan="2">' . 'Rp ' . number_format($this->cart->total()) . '</th>
-			</tr>
-		';
-            return $output;
-        } else {
-            redirect('Login');
-        }
-    }
-
-    function load_cart_success()
-    { //load data cart
-        if ($this->session->userdata('logged_in') == "J0joLulu5tepatw4ktu") {
-            echo $this->show_success_cart();
         } else {
             redirect('Login');
         }
@@ -135,6 +103,52 @@ class Keranjang extends CI_Controller
             redirect('Login');
         }
     }
+
+
+
+    // ------------------------------- [Section Success Cart ] -------------------------------
+
+    function show_success_cart()
+    { //load data cart
+        if ($this->session->userdata('logged_in') == "J0joLulu5tepatw4ktu") {
+            $output = '';
+            $no = 0;
+            foreach ($this->cart->contents() as $items) {
+                $no++;
+                $output .= '
+				<tr>
+					<td>' . $items['id'] . '</td>
+					<td>' . $items['name'] . '</td>
+					<td>' . number_format($items['price']) . '</td>
+					<td>' . $items['jenis'] . '</td>
+					<td>' . $items['qty'] . '</td>
+					<td>' . number_format($items['subtotal']) . '</td>
+				</tr>
+			';
+            }
+            $output .= '
+			<tr>
+				<th colspan="5">Total</th>
+				<th colspan="2">' . 'Rp ' . number_format($this->cart->total()) . '</th>
+			</tr>
+		';
+            return $output;
+        } else {
+            redirect('Login');
+        }
+    }
+
+    function load_cart_success()
+    { //load data cart
+        if ($this->session->userdata('logged_in') == "J0joLulu5tepatw4ktu") {
+            echo $this->show_success_cart();
+        } else {
+            redirect('Login');
+        }
+    }
+
+
+
 
     function checkout()
     {
