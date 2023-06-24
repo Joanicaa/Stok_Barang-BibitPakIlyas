@@ -36,7 +36,7 @@
                         <td><?= $tabel3 ?></td>
                         <td><?= $tabel4 ?></td>
                         <td>
-                            <a href="<?= base_url("/User/hapus_user/" . $tabel1); ?>" class="btn btn-danger"><i class="bi bi-trash"></i></a>
+                            <a data-bs-toggle="modal" data-bs-target="#Hapus-User<?= $tabel1 ?>" class="btn btn-danger"><i class="bi bi-trash"></i></a>
 
                         </td>
                     </tr>
@@ -92,24 +92,41 @@
 </div>
 <!-- end modal Tambah user -->
 
-<!-- Modal Hapus -->
-<div class="modal fade" id="Hapus" tabindex="-1">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Modal hapus</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                Non omnis incidunt qui sed occaecati magni asperiores est mollitia. Soluta at et reprehenderit. Placeat autem numquam et fuga numquam. Tempora in facere consequatur sit dolor ipsum. Consequatur nemo amet incidunt est facilis. Dolorem neque recusandae quo sit molestias sint dignissimos.
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+<?php
+foreach ($tampiluser->result_array() as $dbmasuk) :
+    $tabel1 = $dbmasuk['id'];
+    $tabel2 = $dbmasuk['nama'];
+?>
+    <div class="modal fade" id="Hapus-User<?= $tabel1 ?>" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <?= form_open('/User/hapus_user/' . $tabel1) ?>
+                <div class="modal-header">
+                    <h5 class="modal-title">Modal edit <mark> <?= $tabel2 ?></mark></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <!-- Vertical Form -->
+                    <div class="row g-3">
+                        <div class="col-3">
+                            <label for="Id_barang" class="form-label">Id</label>
+                            <input type="text" class="form-control" id="Id_barang" name="Id_barang" value="<?= $tabel1 ?>" disabled>
+                        </div>
+                        <div class="col-9">
+                            <label for="UpdateNamabarang" class="form-label">Nama User</label>
+                            <input type="text" class="form-control" id="UpdateNamabarang" name="UpdateNamabarang" value="<?= $tabel2 ?>" disabled>
+                        </div>
+                    </div><!-- Vertical Form -->
+                </div>
+                <div class="modal-footer">
+                    <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
+                    <button type="submit" class="btn btn-danger">Hapus Barang</button>
+                </div>
+                <?= form_close()  ?>
             </div>
         </div>
     </div>
-</div>
+<?php endforeach; ?>
 
 <!-- Ini untuk menjadikan tabel biasa menjadi Data Tables -->
 <link href="<?= base_url("Asset/datatables/dataTables.bootstrap5.min.css") ?>" rel="stylesheet">

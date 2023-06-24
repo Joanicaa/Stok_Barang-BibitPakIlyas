@@ -32,18 +32,13 @@
 <body>
     <div class="mx-5 my-3">
 
-
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-            Barang berhasil di checkout!
-        </div>
-
         <div class="row">
 
             <div class="col-lg-12">
 
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Detail Barang yang di Checkout</h5>
+                        <h5 class="card-title">Detail Barang yang Telah dibeli</h5>
 
                         <table class="table table-sm">
                             <thead>
@@ -63,7 +58,7 @@
                                     $tabel2 = $dh['Nama_barang'];
                                     $tabel3 = $dh['Harga_barang'];
                                     $tabel4 = $dh['Ukuran_barang'];
-                                    $tabel5 = $dh['Jumlah_barang'];
+                                    $tabel5 = $dh['Jumlah'];
                                 ?>
                                     <tr>
                                         <td><?= $tabel1 ?></td>
