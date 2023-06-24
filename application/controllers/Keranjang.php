@@ -40,7 +40,6 @@ class Keranjang extends CI_Controller
             );
 
             $this->cart->insert($data);
-            $this->mcart->UploadDataPembelian($data);
             echo $this->show_cart(); //tampilkan cart setelah added
         } else {
             redirect('Login');
@@ -104,8 +103,6 @@ class Keranjang extends CI_Controller
         }
     }
 
-
-
     // ------------------------------- [Section Success Cart ] -------------------------------
 
     function show_success_cart()
@@ -140,14 +137,51 @@ class Keranjang extends CI_Controller
 
     function load_cart_success()
     { //load data cart
+
+        function RANDOMSTR($length)
+        {
+            $str = random_bytes($length);
+            $str = base64_encode($str);
+            $str = str_replace([
+                "+", "/", "="
+            ], "", $str);
+            $str = substr($str, 0, $length);
+            return $str;
+        }
+
+        $ID_PEMBELIAN = RANDOMSTR(10);
+        $ID_DETAIL = RANDOMSTR(15);
+
+        // date_default_timezone_set("Asia/Jakarta");
+        $DATA_PEMBELIAN = array(
+            'Id_histori' => $ID_PEMBELIAN,
+            'Id_detail' => $ID_DETAIL,
+            'Tanggal' => date('dmy'),
+            // 'Waktu' => date('hi'),
+        );
+        $this->mcart->UPLOAD_PEMBELIAN($DATA_PEMBELIAN);
+
         if ($this->session->userdata('logged_in') == "J0joLulu5tepatw4ktu") {
+
             echo $this->show_success_cart();
+            foreach ($this->cart->contents() as $ITEM_KERANJANG) {
+?>
+                <script>
+                    console.log('Hallo <?= $ITEM_KERANJANG['name'] ?>')
+                </script>
+<?php
+                $DATA_DETAILPEMBELIAN = array(
+                    "Id_Utama" => RANDOMSTR(10),
+                    'Id_detail' => $ID_DETAIL,
+                    'Jumlah' => $ITEM_KERANJANG['qty'],
+                    'Id_barang' => $ITEM_KERANJANG['id'],
+                );
+                $this->mcart->UPLOAD_DETAILPEMBELIAN($DATA_DETAILPEMBELIAN);
+            }
         } else {
             redirect('Login');
         }
     }
-
-
 
 
     function checkout()

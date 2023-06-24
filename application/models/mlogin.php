@@ -21,7 +21,7 @@ class mlogin extends CI_Model
                 redirect("Dashboard");
             } else {
                 redirect("Dashboard");
-            }
+            } 
         } else {    
             redirect("Login");
         }

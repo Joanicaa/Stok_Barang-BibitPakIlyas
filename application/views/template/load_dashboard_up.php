@@ -218,7 +218,7 @@
         </a>
       </li><!-- End Blank Page Nav -->
       <li class="nav-item">
-        <a class="<?= ($this->uri->segment(1) === 'Histori_pembelian') ? 'nav-link' : 'nav-link collapsed' ?>" href="<?= base_url('Histori_pembelian') ?>">
+        <a class="<?= ($this->uri->segment(1) === 'Histori') ? 'nav-link' : 'nav-link collapsed' ?>" href="<?= base_url('Histori') ?>">
           <i class="bi bi-people"></i>
           <span>Histori Pembelian</span>
         </a>

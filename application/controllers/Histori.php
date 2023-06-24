@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class Histori_pembelian extends CI_Controller
+class Histori extends CI_Controller
 {
     function __construct()
     {
@@ -21,5 +21,13 @@ class Histori_pembelian extends CI_Controller
         } else {
             redirect('Login');
         }
+    }
+    function Detail()
+    {
+
+        $get_id = $this->uri->segment(3);
+        $get_table['data_histori'] = $this->mhistori->getHistori($get_id);
+        // var_dump($get_table);
+        $this->load->view('vhistori_detail', $get_table);
     }
 }

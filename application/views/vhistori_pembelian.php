@@ -10,22 +10,26 @@
         <table class="table table-striped" id="tabel_barang_masuk">
             <thead>
                 <tr>
-                    <th scope="col">Id Penjualan</th>
+                    <th scope="col">Id Pembelian</th>
                     <th scope="col">Id Detail</th>
                     <th scope="col">Tanggal Pembelian</th>
+                    <th scope="col">View More</th>
                 </tr>
             </thead>
             <tbody>
                 <?php
                 foreach ($datapembelian->result_array() as $dbmasuk) :
-                    $tabel1 = $dbmasuk['Id_Penjualan'];
-                    $tabel2 = $dbmasuk['Id_Detail'];
-                    $tabel3 = $dbmasuk['Tanggal_Barang_Keluar'];
+                    $tabel1 = $dbmasuk['Id_histori'];
+                    $tabel2 = $dbmasuk['Id_detail'];
+                    $tabel3 = $dbmasuk['Tanggal'];
                 ?>
                     <tr>
                         <td><?= $tabel1 ?></td>
                         <td><?= $tabel2 ?></td>
                         <td><?= $tabel3 ?></td>
+                        <td>
+                            <a href="<?= base_url('/Histori/Detail/' . $tabel2) ?>" class="btn btn-warning"><i class="bi bi-info-circle"></i></a>
+                        </td>
                     </tr>
                 <?php endforeach; ?>
             </tbody>
@@ -38,9 +42,9 @@
 
 <?php
 foreach ($datapembelian->result_array() as $dbmasuk) :
-    $tabel1 = $dbmasuk['Id_Penjualan'];
-    $tabel2 = $dbmasuk['Id_Detail'];
-    $tabel3 = $dbmasuk['Tanggal_Barang_Keluar'];
+    $tabel1 = $dbmasuk['Id_histori'];
+    $tabel2 = $dbmasuk['Id_detail'];
+    $tabel3 = $dbmasuk['Tanggal'];
 ?>
     <div class="modal fade" id="Edits<?= $tabel1 ?>" tabindex="-1">
         <div class="modal-dialog modal-lg">

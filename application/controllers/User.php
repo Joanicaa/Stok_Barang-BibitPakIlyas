@@ -6,13 +6,13 @@ class User extends CI_Controller
     function __construct()
     {
         parent::__construct();
-        $this->load->model('mdashboard');
+        $this->load->model('muser');
     }
 
     public function index()
     {
 
-        $tampiluser['tampiluser'] = $this->mdashboard->getdatauser();
+        $tampiluser['tampiluser'] = $this->muser->getdatauser();
 
         if ($this->session->userdata('logged_in') == "J0joLulu5tepatw4ktu") {
             if ($this->session->userdata('level') == '1') {
@@ -38,7 +38,7 @@ class User extends CI_Controller
                     'nama' => $this->input->post('nama'),
                     'level' => $this->input->post('role'),
                 );
-                $this->mdashboard->insert_user($datamasuk);
+                $this->muser->insert_user($datamasuk);
             } else {
                 echo 'Kamu Tidak Diperbolehkan Mengakses Halaman Ini';
             }
@@ -51,7 +51,7 @@ class User extends CI_Controller
         if ($this->session->userdata('logged_in') == "J0joLulu5tepatw4ktu") {
             if ($this->session->userdata('level') == '1') {
                 $id = $this->uri->segment(3);
-                $this->mdashboard->delete_user($id);
+                $this->muser->delete_user($id);
             } else {
                 echo 'Kamu Tidak Diperbolehkan Mengakses Halaman Ini';
             }

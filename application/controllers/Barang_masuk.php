@@ -6,19 +6,19 @@ class Barang_masuk extends CI_Controller
 	function __construct()
 	{
 		parent::__construct();
-		$this->load->model('mdashboard');
+		$this->load->model('mbarang');
 	}
 
 	public function index()
 	{
 		$titlepage['titlepage'] = 'Barang Masuk';
-		$databarangmasuk['databarangmasuk'] = $this->mdashboard->getdatafromdb();
+		$databarangmasuk['databarangmasuk'] = $this->mbarang->getdatafromdb();
 
 		if ($this->session->userdata('logged_in') == "J0joLulu5tepatw4ktu") {
 
 			$table = "databarang";
 			$field = "Id_barang";
-			$lastkode = $this->mdashboard->getMax($table, $field);
+			$lastkode = $this->mbarang->getMax($table, $field);
 
 			$noUrut = (int) substr($lastkode, -3, 3);
 			$noUrut++;
@@ -46,7 +46,7 @@ class Barang_masuk extends CI_Controller
 				'Jumlah_barang' => $this->input->post('Jumlahbarang'),
 				'Tanggal_barang_masuk' => date('ymd'),
 			);
-			$this->mdashboard->insert($datamasuk);
+			$this->mbarang->insert($datamasuk);
 		} else {
 			$this->load->view('vlogin');
 		}
@@ -55,7 +55,7 @@ class Barang_masuk extends CI_Controller
 	{
 		if ($this->session->userdata('logged_in') == "J0joLulu5tepatw4ktu") {
 			$id = $this->uri->segment(3);
-			$this->mdashboard->delete($id);
+			$this->mbarang->delete($id);
 		} else {
 			$this->load->view('vlogin');
 		}
@@ -70,7 +70,7 @@ class Barang_masuk extends CI_Controller
 				'Jumlah_barang' => $this->input->post('UpdateJumlahbarang'),
 			);
 			$id_barang = $this->uri->segment(3);
-			$this->mdashboard->update($datamasuk, $id_barang);
+			$this->mbarang->update($datamasuk, $id_barang);
 		} else {
 			$this->load->view('vlogin');
 		}
