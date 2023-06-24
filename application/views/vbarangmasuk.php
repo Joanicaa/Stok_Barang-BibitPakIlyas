@@ -94,7 +94,7 @@
           </div>
           <div class="col-9">
             <label for="Harga" class="form-label">Harga Barang</label>
-            <input type="number" class="form-control" id="Harga" name="Harga">
+            <input type="number" class="form-control" id="Harga" name="Harga" required>
           </div>
         </div><!-- Vertical Form -->
       </div>

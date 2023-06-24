@@ -11,18 +11,12 @@ class Dashboard extends CI_Controller
 
 	public function index()
 	{
-
 		if ($this->session->userdata('logged_in') == "J0joLulu5tepatw4ktu") {
 			$titlepage['titlepage'] = 'Dashboard';
 			$databarangmasuk['data_flow'] = $this->mdashboard->getdatafromdb();
 			$databarangmasuk["jumlah_id"] = $this->mdashboard->get_count_id();
 			$databarangmasuk["jumlah_stok"] = $this->mdashboard->stokbarang();
 			$databarangmasuk["barang_habis"] = $this->mdashboard->hampir_habis();
-
-			// var_dump($this->mdashboard->jumlah_hampir_habis());
-			// die;
-
-
 
 			$this->load->view('template/load_dashboard_up', $titlepage);
 			$this->load->view('vdashboard', $databarangmasuk);

@@ -16,6 +16,7 @@
                     <th scope="col">View More</th>
                 </tr>
             </thead>
+
             <tbody>
                 <?php
                 foreach ($datapembelian->result_array() as $dbmasuk) :
@@ -24,8 +25,9 @@
                     $tabel3 = $dbmasuk['Tanggal'];
                 ?>
                     <tr>
-                        <td><?= $tabel1 ?></td>
-                        <td><?= $tabel2 ?></td>
+                        <td><?= strtoupper($tabel1) ?></td>
+                        <!-- ini style untuk barcode  -->
+                        <td style="font-family: 'Libre Barcode 128', cursive; font-size:40px"><?= strtoupper($tabel2) ?></td>
                         <td><?= $tabel3 ?></td>
                         <td>
                             <a href="<?= base_url('/Histori/Detail/' . $tabel2) ?>" class="btn btn-warning"><i class="bi bi-clock-history"></i></a>
