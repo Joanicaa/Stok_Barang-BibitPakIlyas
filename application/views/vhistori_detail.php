@@ -78,7 +78,7 @@
 
                 <div class="d-flex justify-content-end">
                     <a href="<?= base_url("/Histori") ?>" class="btn btn-secondary me-2">Kembali</a>
-                    <button class="btn btn-warning" onclick="window.print()"> <i class="bi bi-cart-plus me-2"></i>Cetak Bukti Pembelian</button>
+                    <button class="btn btn-warning" onclick="window.print()"> <i class="bi bi-printer me-2"></i>Cetak Bukti Pembelian</button>
                 </div>
             </div>
 

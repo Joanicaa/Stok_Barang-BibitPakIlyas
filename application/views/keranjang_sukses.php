@@ -40,7 +40,9 @@
         <div class="row">
 
             <div class="col-lg-12">
-
+                <div class="text-center mb-2">
+                    <h1> Bibit Buah Pak Ilyas</h1>
+                </div>
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">Detail Barang yang di Checkout</h5>
@@ -66,7 +68,7 @@
 
                 <div class="d-flex justify-content-end">
                     <a href="<?= base_url("/Keranjang") ?>" class="btn btn-secondary me-2">Kembali</a>
-                    <button class="btn btn-warning" onclick="window.print()"> <i class="bi bi-cart-plus me-2"></i>Cetak Bukti Pembelian</button>
+                    <button class="btn btn-warning" onclick="window.print()"> <i class="bi bi-printer me-2"></i>Cetak Bukti Pembelian</button>
                 </div>
             </div>
 
