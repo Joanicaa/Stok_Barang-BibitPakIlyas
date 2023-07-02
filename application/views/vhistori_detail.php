@@ -66,9 +66,14 @@
                                         <td><?= $tabel3 ?></td>
                                         <td><?= $tabel4 ?></td>
                                         <td><?= $tabel5 ?></td>
-
                                     </tr>
                                 <?php endforeach; ?>
+                                <tr class="bg-light">
+                                    <td colspan="2">Jumlah</td>
+                                    <td> <b> <?= number_format($total_harga) ?></b></td>
+                                    <td></td>
+                                    <td><?= $total_QTY; ?></td>
+                                </tr>
                             </tbody>
                         </table>
                         <!-- End small tables -->

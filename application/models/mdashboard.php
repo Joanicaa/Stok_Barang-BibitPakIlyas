@@ -12,6 +12,10 @@ class mdashboard extends CI_Model
     {
         return $this->db->count_all('databarang');
     }
+    function GETTOTALPENJUALAN()
+    {
+        return $this->db->count_all('datapembelian');
+    }
     function stokbarang()
     {
         return $this->db->query("Select SUM(Jumlah_barang) as jb from databarang")->row()->jb;

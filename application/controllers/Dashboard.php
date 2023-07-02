@@ -15,6 +15,7 @@ class Dashboard extends CI_Controller
 			$titlepage['titlepage'] = 'Dashboard';
 			$databarangmasuk['data_flow'] = $this->mdashboard->getdatafromdb();
 			$databarangmasuk["jumlah_id"] = $this->mdashboard->get_count_id();
+			$databarangmasuk["jumlah_penjulan"] = $this->mdashboard->GETTOTALPENJUALAN();
 			$databarangmasuk["jumlah_stok"] = $this->mdashboard->stokbarang();
 			$databarangmasuk["barang_habis"] = $this->mdashboard->hampir_habis();
 

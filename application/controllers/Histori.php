@@ -24,10 +24,10 @@ class Histori extends CI_Controller
     }
     function Detail()
     {
-
         $get_id = $this->uri->segment(3);
-        $get_table['data_histori'] = $this->mhistori->getHistori($get_id);
-        // var_dump($get_table);
-        $this->load->view('vhistori_detail', $get_table);
+        $getdata['data_histori'] = $this->mhistori->getHistori($get_id);
+        $getdata['total_harga'] = $this->mhistori->GETJUMLAHTOTAL($get_id);
+        $getdata['total_QTY'] = $this->mhistori->GETQTYJUMLAH($get_id);
+        $this->load->view('vhistori_detail', $getdata);
     }
 }

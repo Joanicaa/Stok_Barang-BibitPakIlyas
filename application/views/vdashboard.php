@@ -36,11 +36,11 @@
               <div class="card info-card revenue-card">
 
                 <div class="card-body">
-                  <h5 class="card-title">Stock Seluruh Barang <span>| Hari Ini</span></h5>
+                  <h5 class="card-title">Stok Seluruh Barang <span>| Hari Ini</span></h5>
 
                   <div class="d-flex align-items-center">
                     <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                      <i class="bi bi-currency-dollar"></i>
+                      <i class="bi bi-cart-plus"></i>
                     </div>
                     <div class="ps-3">
                       <h6><?= $jumlah_stok; ?></h6>
@@ -63,10 +63,10 @@
 
                   <div class="d-flex align-items-center">
                     <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                      <i class="bi bi-people"></i>
+                      <i class="bi bi-currency-dollar"></i>
                     </div>
                     <div class="ps-3">
-                      <h6>asdasd</h6>
+                      <h6><?= $jumlah_penjulan ?></h6>
                       <span class="text-success small pt-1 fw-bold"><?= date("d M") ?></span><span class="text-muted small pt-2 ps-1"><?= date("Y") ?></span>
 
                     </div>

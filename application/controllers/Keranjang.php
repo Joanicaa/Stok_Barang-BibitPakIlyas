@@ -170,6 +170,9 @@ class Keranjang extends CI_Controller
                     console.log('Hallo <?= $ITEM_KERANJANG['name'] ?>')
                 </script>
 <?php
+
+                $this->mcart->KURANGIBARANG($ITEM_KERANJANG['qty'], $ITEM_KERANJANG['id']);
+
                 $DATA_DETAILPEMBELIAN = array(
                     "Id_Utama" => RANDOMSTR(10),
                     'Id_detail' => $ID_DETAIL,

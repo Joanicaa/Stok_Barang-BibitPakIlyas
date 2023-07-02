@@ -3,7 +3,7 @@
 </div><!-- End Page Title -->
 
 
-<!-- start modal Tambah barang -->
+<!-- start modal tambah user -->
 <button type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#User"><i class="bi bi-file-earmark-plus"></i>
     Tambah User </button>
 
@@ -55,7 +55,7 @@
         <div class="modal-content">
             <?= form_open('User/tambah_user') ?>
             <div class="modal-header">
-                <h5 class="modal-title">Tambah Admin</h5>
+                <h5 class="modal-title">Tambah User</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -84,7 +84,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                <button type="submit" class="btn btn-primary">Tambah Admin</button>
+                <button type="submit" class="btn btn-primary">Tambah User</button>
             </div>
             <?= form_close() ?>
         </div>
@@ -120,7 +120,7 @@ foreach ($tampiluser->result_array() as $dbmasuk) :
                 </div>
                 <div class="modal-footer">
                     <!-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> -->
-                    <button type="submit" class="btn btn-danger">Hapus Barang</button>
+                    <button type="submit" class="btn btn-danger">Hapus User</button>
                 </div>
                 <?= form_close()  ?>
             </div>

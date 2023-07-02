@@ -10,9 +10,9 @@
         <table class="table table-striped" id="tabel_barang_masuk">
             <thead>
                 <tr>
+                    <th scope="col">Tanggal Pembelian</th>
                     <th scope="col">Id Pembelian</th>
                     <th scope="col">Id Detail</th>
-                    <th scope="col">Tanggal Pembelian</th>
                     <th scope="col">View More</th>
                 </tr>
             </thead>
@@ -25,10 +25,10 @@
                     $tabel3 = $dbmasuk['Tanggal'];
                 ?>
                     <tr>
-                        <td style="font-family: 'Libre Barcode 128', cursive; font-size:40px"><?= strtoupper($tabel1) ?></td>
-                        <!-- ini style untuk barcode  -->
-                        <td><?= strtoupper($tabel2) ?></td>
+                        <!-- style="font-family: 'Libre Barcode 128', cursive; font-size:40px"  -->
                         <td><?= $tabel3 ?></td>
+                        <td><?= strtoupper($tabel1) ?></td>
+                        <td><?= strtoupper($tabel2) ?></td>
                         <td>
                             <a href="<?= base_url('/Histori/Detail/' . $tabel2) ?>" class="btn btn-warning"><i class="bi bi-clock-history"></i></a>
                         </td>

@@ -21,4 +21,9 @@ class mcart extends CI_Model
     {
         $this->db->insert('detailpembelian', $DATA_DETAILPEMBELIAN);
     }
+
+    function KURANGIBARANG($dataQTY, $id_barang)
+    {
+        return $this->db->query('UPDATE databarang set Jumlah_barang=Jumlah_barang-' . $dataQTY . ' WHERE Id_barang="' . $id_barang . '"');
+    }
 }
